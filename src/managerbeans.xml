@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<bean id="wechatManager"
+		class="iwode.service.manager.wechat.defaultImpl.WechatManagerDefaultImpl">
+		<property name="wechatLinkDAO" ref="wechatLinkDAO" />
+		<property name="memberUserDAO" ref="memberUserDAO" />
+		<property name="bookingDAO" ref="bookingDAO" />
+		<property name="couponDAO" ref="couponDAO" />
+		<property name="tailorDAO" ref="tailorDAO" />
+	</bean>
+	
+	<bean id="wechatAction"
+		class="iwode.service.action.wechat.WechatAction" scope="prototype">
+		<property name="wechatManager" ref="wechatManager"></property>
+	</bean>
+</beans>

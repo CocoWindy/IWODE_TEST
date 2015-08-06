@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts> 
+	<include file="struts-default.xml"/>
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="index" />
+		<action name="index">
+			<result>/index.html</result>
+		</action>
+	</package>
+	
+    <package namespace="/wechat" name="wechat" extends="struts-default">  
+        <action name="test" method="test" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="checkOpenId" method="checkOpenId" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="booking" method="booking" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="banding" method="banding" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="getBookingList" method="getBookingList" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="getBookDetails" method="getBookDetails" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="getCouponList" method="getCouponList" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+        <action name="cancelBooking" method="cancelBooking" class="wechatAction">  
+            <result name="result">/result.jsp</result>  
+        </action> 
+    </package>  
+</struts>
